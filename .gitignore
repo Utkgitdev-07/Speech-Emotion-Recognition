@@ -1,0 +1,17 @@
+# Ignore Python cache and virtual environment
+__pycache__/
+*.pyc
+*.pyo
+env/
+venv/
+
+
+# Ignore frontend build files (can be generated again)
+frontend/node_modules/
+frontend/build/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

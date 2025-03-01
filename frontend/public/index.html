@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Emotion Recognition</title>
+    <link rel="stylesheet" href="../src/App.css">
+</head>
+<body>
+
+    <h1>
+        <span>🎙️</span>
+        <span>Speech</span>
+        <span>Emotion</span>
+        <span>Recognition</span>
+    </h1>
+
+    <main>
+        <div>
+            <h2>Real-time Emotion Analysis</h2>
+            <button id="startBtn">Start Recording</button>
+            <button id="stopBtn" disabled>Stop Recording</button>
+        </div>
+    
+        <output>
+            <p id="status"></p>
+            <p id="emotion"></p>
+        </output>
+    
+        <div>
+            <h2>Upload Audio File</h2>
+            <input type="file" id="audioFile">
+            <button id="uploadBtn">Upload & Analyze Emotion</button>
+        </div>
+    </main>
+    
+
+    <script>
+        document.getElementById("startBtn").addEventListener("click", function() {
+            fetch("/start", { method: "POST" })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("status").innerText = data.status;
+                    document.getElementById("startBtn").disabled = true;
+                    document.getElementById("stopBtn").disabled = false;
+                });
+        });
+
+        document.getElementById("stopBtn").addEventListener("click", function() {
+            fetch("/stop", { method: "POST" })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("status").innerText = data.status;
+                    document.getElementById("emotion").innerText = "Detected Emotion: " + data.emotion;
+                    document.getElementById("startBtn").disabled = false;
+                    document.getElementById("stopBtn").disabled = true;
+                });
+        });
+
+        document.getElementById("uploadBtn").addEventListener("click", function() {
+            let fileInput = document.getElementById("audioFile");
+            let formData = new FormData();
+            formData.append("audioFile", fileInput.files[0]);
+
+            fetch("/upload", { method: "POST", body: formData })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("status").innerText = data.status;
+                    document.getElementById("emotion").innerText = "Detected Emotion: " + data.emotion;
+                });
+        });
+    </script>
+
+</body>
+</html>

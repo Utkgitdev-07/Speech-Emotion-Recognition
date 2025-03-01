@@ -1,0 +1,15 @@
+tensorflow
+numpy
+librosa
+pandas
+matplotlib
+seaborn
+scikit-learn
+ipython
+jupyter
+flask
+sounddevice
+flask-cors
+scipy
+pyaudio
+threading
