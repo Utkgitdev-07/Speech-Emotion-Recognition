@@ -22,5 +22,8 @@ COPY . .
 # Expose the port Flask runs on
 EXPOSE 5000
 
-# Command to run the app
-CMD ["python", "app.py"]
+# Set an environment variable to disable GPU
+ENV CUDA_VISIBLE_DEVICES="-1"
+
+# Use Gunicorn instead of Flask dev server
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
