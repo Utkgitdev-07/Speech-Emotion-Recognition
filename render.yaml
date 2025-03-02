@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: speech-emotion-recognition
-    env: docker
-    repo: https://github.com/Utkgitdev-07/Speech-Emotion-Recognition
-    plan: free
-    envVars:
-      - key: PORT
-        value: 5000
