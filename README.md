@@ -115,6 +115,17 @@ The frontend will be available, allowing you to record/upload audio and get emot
   - Pleasant Surprise
   - Sad
  
+## Screenshots
+
+Here are some screenshots to illustrate how the project works:
+
+### **Before Execution**
+![Before](screenshots/before.png)
+
+### **After Execution**
+![After](screenshots/after.png)
+
+
 ## Notes
 
  - Ensure you have Python and Node.js installed.
