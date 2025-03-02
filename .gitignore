@@ -4,6 +4,7 @@ __pycache__/
 *.pyo
 env/
 venv/
+envv/
 
 
 # Ignore frontend build files (can be generated again)
