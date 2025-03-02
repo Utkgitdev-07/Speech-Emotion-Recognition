@@ -12,4 +12,4 @@ sounddevice
 flask-cors
 scipy
 pyaudio
-threading
+
