@@ -59,6 +59,16 @@ cd Speech-Emotion-Recognition
 
 ### 2️⃣ Install Dependencies
 #### 🔹 Backend
+
+**Create a Virtual Environment:**
+
+Open your terminal/command prompt and navigate to the project folder. Then, create and activate a virtual environment:
+```sh
+python -m venv venv      # Create a virtual environment
+source venv/bin/activate # For macOS/Linux
+venv\Scripts\activate    # For Windows
+```
+Install Requirements
 ```sh
 pip install -r requirements.txt
 ```
